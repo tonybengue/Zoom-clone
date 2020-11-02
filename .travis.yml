@@ -1,0 +1,21 @@
+language: node_js
+node_js: 12
+#os: linux
+#dist: xenial
+
+stages:
+    - testing
+    - deployment
+jobs:
+    include:
+    - stage: testing
+      name: compiling
+      install: npm install
+      before_install: cd back
+      script: npm run build
+
+    - stage: testing
+      name: linting
+      install: npm install
+      before_install: cd back
+      script: skip #linter
