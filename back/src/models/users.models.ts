@@ -8,11 +8,11 @@ export class User {
   lastName: string;
   email: string;
 
-  constructor(firstname: string, lastname: string, email: string){
+  constructor(firstName: string, lastName: string, email: string){
     User.last_id += 1;
     this.id = User.last_id;
-    this.firstName = firstname;
-    this.lastName = lastname;
+    this.firstName = firstName;
+    this.lastName = lastName;
     this.email = email;
   }
 

@@ -1,7 +1,15 @@
 import { Request, Response, Router } from 'express';
-import { createUser, getUser } from '../controllers/users.controllers';
+import { UserNotFoundError } from '../controllers/errors/userNotFound';
+import { createUser, getUser, getUsers, updateUser } from '../controllers/users.controllers';
 
 const router = Router();
+
+// GET an user
+router.get('/', (req : Request, res : Response) => {
+  const users = getUsers();
+
+  res.send(users);
+})
 
 // GET an user
 router.get('/:userId', (req : Request, res : Response) => {
@@ -20,7 +28,23 @@ router.post('/', (req : Request, res : Response) => {
   }
   createUser(firstName, lastName, email);
   
-  res.send('User created');
+  res.status(200).send('User created');
+})
+
+// UPDATE an user
+router.patch('/:userId', (req: Request, res: Response) => {
+  const id = parseInt(req.params["userId"]);
+  const { firstName, lastName, email } = req.body;
+
+  try {
+    updateUser(id, firstName, lastName, email);
+  } catch(err) {
+    if(err instanceof UserNotFoundError){
+      res.status(404).send("User not found");
+    } else {
+      throw err;
+    }
+  }
 })
 
 export default router; 

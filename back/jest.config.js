@@ -1,9 +1,7 @@
-/*
- * For a detailed explanation regarding each configuration property and type check, visit:
- * https://jestjs.io/docs/en/configuration.html
- */
+// For a detailed explanation regarding each configuration property, visit:
+// https://jestjs.io/docs/en/configuration.html
 
- export default {
+module.exports = {
   // All imported modules in your tests should be mocked automatically
   // automock: false,
 
@@ -11,7 +9,7 @@
   // bail: 0,
 
   // The directory where Jest should store its cached dependency information
-  // cacheDirectory: "C:\\Users\\tonyb\\AppData\\Local\\Temp\\jest",
+  // cacheDirectory: "/private/var/folders/lc/b5q2xdzx6yxdfrp0mfq1c2qr0000gn/T/jest_dx",
 
   // Automatically clear mock calls and instances between every test
   clearMocks: true,
@@ -23,15 +21,15 @@
   // collectCoverageFrom: undefined,
 
   // The directory where Jest should output its coverage files
-  // coverageDirectory: undefined,
+  coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
   // coveragePathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+  //   "/node_modules/"
   // ],
 
   // Indicates which provider should be used to instrument code for coverage
-  coverageProvider: "coverage",
+  // coverageProvider: "babel",
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -93,7 +91,7 @@
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: "ts-test",
+  preset: "ts-jest",
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -130,9 +128,6 @@
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
 
-  // The number of seconds after which a test is considered as slow and reported as such in the results.
-  // slowTestThreshold: 5,
-
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],
 
@@ -153,7 +148,7 @@
 
   // An array of regexp pattern strings that are matched against all test paths, matched tests are skipped
   // testPathIgnorePatterns: [
-  //   "\\\\node_modules\\\\"
+  //   "/node_modules/"
   // ],
 
   // The regexp pattern or array of patterns that Jest uses to detect test files
@@ -176,8 +171,7 @@
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [
-  //   "\\\\node_modules\\\\",
-  //   "\\.pnp\\.[^\\\\]+$"
+  //   "/node_modules/"
   // ],
 
   // An array of regexp pattern strings that are matched against all modules before the module loader will automatically return a mock for them
