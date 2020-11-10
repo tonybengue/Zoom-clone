@@ -16,7 +16,9 @@
         "@typescript-eslint"
     ],
     "rules": {
-        // "linebreak-style": [2, "windows"],
-        // "indent": [1, 2]
+        "linebreak-style": [2, "windows"],
+        "indent": [1, 2],
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "next" }]
     }
 }

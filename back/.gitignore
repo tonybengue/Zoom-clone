@@ -1,4 +1,7 @@
 node_modules
+pnpm-lock.yaml
 dist/
 
 .env
+/src/controllers/old.users.controllers.ts
+/src/models/old.users.models.ts

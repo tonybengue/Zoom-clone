@@ -15,6 +15,7 @@
     "@types/jest": "^26.0.15",
     "@types/mongoose": "^5.7.37",
     "@types/morgan": "^1.9.2",
+    "@typescript-eslint/eslint-plugin": "^4.7.0",
     "@typescript-eslint/parser": "^4.6.1",
     "eslint": "^7.12.1",
     "jest": "^26.6.2",
@@ -35,7 +36,7 @@
   "license": "ISC",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Flint-Academy/RebootJS-Back.git"
+    "url": "git+https://github.com/tonybengue/zoom_clone.git"
   },
   "bugs": {
     "url": "https://github.com/tonybengue/zoom_clone/issues"

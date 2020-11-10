@@ -4,6 +4,7 @@ import helmet from "helmet";
 import { configuration, IConfig } from "./config";
 
 import generalRouter from './routes/router';
+import { connect } from './database';
 
 export function createExpressApp(config: IConfig): express.Express {
   const { express_debug } = config;
@@ -15,7 +16,7 @@ export function createExpressApp(config: IConfig): express.Express {
   app.use(helmet());
   app.use(express.json());
 
-  app.use(((err, _req, res, _next) => {
+  app.use(((err, req, res, next) => {
     console.error(err.stack);
     res.status?.(500).send(!express_debug ? 'Oups' : err);
   }) as ErrorRequestHandler);
@@ -30,4 +31,9 @@ export function createExpressApp(config: IConfig): express.Express {
 const config = configuration();
 const { PORT } = config;
 const app = createExpressApp(config);
-app.listen(PORT, () => console.log(`Flint messenger listening at http://127.0.0.1:${PORT}`));
+
+// app.listen(PORT, () => console.log(`Flint messenger listening at http://127.0.0.1:${PORT}`));
+connect(config).then(
+  () => app.listen(PORT, () => 
+    console.log(`Flint messenger listening at http://127.0.0.1:${PORT}`))
+)

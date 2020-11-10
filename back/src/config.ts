@@ -3,15 +3,15 @@ import { readFileSync } from 'fs';
 import { resolve } from 'path';
 
 // if (process.env.NODE_ENV !== 'production') {
-//   require('dotenv').config();
+//   config();
 // }
 
 // dotenv
 config();
-const db_hostname = process.env.DB_HOST;
-const db_user = process.env.DB_USER;
-const db_password = process.env.DB_PASS;
-const db_name = process.env.DB_NAME;
+const mongo_host = process.env.DB_HOST;
+const mongo_user = process.env.DB_USER;
+const mongo_pass = process.env.DB_PASS;
+const mongo_database = process.env.DB_NAME;
 
 // Load default config
 const defaultConfig = JSON.parse(
@@ -32,7 +32,7 @@ export interface IConfig {
 
 // Process configuration
 export function configuration(): IConfig {
-  const result: any = { ...defaultConfig, db_hostname, db_user, db_password, db_name };
+  const result: any = { ...defaultConfig, mongo_host, mongo_user, mongo_pass, mongo_database };
 
   for (const key in result) {
     if (key in process.env) result[key] = process.env[key];
