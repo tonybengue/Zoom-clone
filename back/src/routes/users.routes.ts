@@ -4,18 +4,21 @@ import { createUser, getUser, getUsers, updateUser } from '../controllers/users.
 
 const router = Router();
 
-// GET an user
+// GET users
 router.get('/', (req : Request, res : Response) => {
   const users = getUsers();
 
   res.send(users);
 })
 
-// GET an user
+// GET an user by it's id
 router.get('/:userId', (req : Request, res : Response) => {
   const id = parseInt(req.params["userId"]);
   const user = getUser(id);
 
+  if(!user){
+    return res.status(400).send("User not found");
+  }
   res.send(user);
 })
 

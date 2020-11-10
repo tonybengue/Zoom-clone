@@ -1,4 +1,5 @@
 {
   "PORT": 3000,
-  "express_debug": true
+  "express_debug": true,
+  "mongo_debug": true
 }

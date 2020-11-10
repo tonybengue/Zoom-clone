@@ -10,6 +10,7 @@ export function createExpressApp(config: IConfig): express.Express {
 
   const app = express();
 
+  // Middlewares
   app.use(morgan('combined'));
   app.use(helmet());
   app.use(express.json());
@@ -29,4 +30,4 @@ export function createExpressApp(config: IConfig): express.Express {
 const config = configuration();
 const { PORT } = config;
 const app = createExpressApp(config);
-app.listen(PORT, () => console.log(`Flint messenger listening at ${PORT}`));
+app.listen(PORT, () => console.log(`Flint messenger listening at http://127.0.0.1:${PORT}`));
